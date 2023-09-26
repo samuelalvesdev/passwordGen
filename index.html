@@ -1,18 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- TITULO DA PÁGINA -->
     <title>Gerador de senha</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="header">
-        <div class="container">
-            <h1 class="heading">Gerador de senha</h1>
-            <h2 class="sub-heading">Utilize o nosso gerador online para criar uma senha forte e segura</h2>
-        </div>
-    </div>
+    <!-- ARQUIVOS CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- ARQUIVOS JAVASCRIPT -->
+    <script src="script.js"></script>
     
-</body>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="heading">Gerador de senha</h1>
+        <h2 class="sub-heading">
+          Utilize o nosso gerador online para criar uma senha forte e segura
+        </h2>
+      </div>
+    </header>
+
+    <main>
+      <div class="password">
+        <input type="text" name="password" id="password" />
+
+        <input
+          type="range"
+          name="password-lenght"
+          id="password-lenght"
+          value="16"
+          min="4"
+          max="64"
+        />
+      </div>
+    </main>
+  </body>
 </html>

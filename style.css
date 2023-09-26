@@ -4,7 +4,9 @@
   font-family: "Poppins", sans-serif;
 }
 
+/* Parte de cima /apresentação do projeto */
 .header {
+    position: relative;
 }
 .container {
   text-align: center;
@@ -15,3 +17,6 @@
 .sub-heading {
   font-size: 0.9rem;
 }
+
+/* Parte do código da geração das senhas */
+
