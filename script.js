@@ -1,15 +1,17 @@
-function generatePassword() {
-  const chars ="abcdefghjklmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ123456789?!@*()[]"
+const chars =
+  "abcdefghjklmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ123456789?!@*()[]";
+  const inputEL = document.querySelector(".container-password password-input");
   
-  let password = ""
-  
+  function generatePassword() {
+    let password = "";
+    
   for (let i = 0; i < 8; i++) {
-      const randomNumber = Math.floor(Math.random() * chars.length)
-      password += chars.substring(randomNumber, randomNumber + 1)
-    }
-    console.log(password)
-
+    const randomNumber = Math.floor(Math.random() * chars.length);
+    password += chars.substring(randomNumber, randomNumber + 1);
   }
-  
-  
-  generatePassword();
+
+  inputEL.value = password;
+  console.log(password);
+}
+
+generatePassword();
