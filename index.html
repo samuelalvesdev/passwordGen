@@ -9,12 +9,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&family=Inter:wght@400;600&display=swap"
       rel="stylesheet"
     />
     <!-- Arquivo CSS -->
-    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="reset.css" />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main>
@@ -26,7 +30,23 @@
         </p>
       </section>
 
-      <input type="text" name="password" id="password" />
+      <section class="box">
+        <div class="password">
+          <div class="text">
+            <input type="text" name="password" id="password" />
+          </div>
+          <div class="actions">
+            <ul class="buttons">
+              <li>
+                <button class="copiar"><i class="uil uil-copy"></i></button>
+              </li>
+              <li>
+                <button class="gerardnv"><i class="uil uil-redo"></i></button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       <input
         type="range"
@@ -42,6 +62,8 @@
 
     <script>
       const inputEL = document.querySelector("#password");
+      const gerardnvBtn = document.querySelector(".gerardnv");
+      const copiarBtn = document.querySelector(".copiar")
 
       let passwordLenght = 16;
 
@@ -74,7 +96,9 @@
 
       const copyButtonEl = document.querySelector("#copy");
       copyButtonEl.addEventListener("click", copy);
-
+      gerardnvBtn.addEventListener("click", generatePassword);
+      copiarBtn.addEventListener("click", copy);
+      
       generatePassword();
     </script>
   </body>
