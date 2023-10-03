@@ -54,7 +54,7 @@ main {
   -ms-user-select: none;
   user-select: none;
 }
-.buttons{
+.buttons {
   display: flex;
   flex-direction: row;
 }
@@ -69,12 +69,42 @@ main {
   background-color: white;
   cursor: pointer;
   font-size: 2.5rem;
-
 }
 
-.buttons .copiar:hover{
+.buttons .copiar:hover {
   color: purple;
 }
-.buttons .gerardnv:hover{
+.buttons .gerardnv:hover {
   color: purple;
+}
+
+.security-indicator {
+  height: 10px;
+  background-color: #ddd;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.security-indicator .bar {
+  height: 10px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  transition: 0.2s;
+}
+
+.security-indicator .bar.completed{
+  border-top-right-radius: 0;
+}
+
+.security-indicator .bar.critical{
+  background-color: #eb5757;
+}
+
+.security-indicator .bar.warning{
+  background-color: #f2c94c;
+}
+
+.security-indicator .bar.safe{
+  background-color: #27ae60;
 }
