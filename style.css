@@ -194,14 +194,14 @@ main {
   transition: 0.2s;
 }
 
-.checkbox-container:hover input ~ .checkmark{
+.checkbox-container:hover input ~ .checkmark {
   background-color: #cccccc;
 }
-.checkbox-container input:checked ~ .checkmark{
+.checkbox-container input:checked ~ .checkmark {
   background: #9b51e0;
 }
 
-.checkbox-container .checkmark:after{
+.checkbox-container .checkmark:after {
   content: "";
   display: none;
   position: absolute;
@@ -213,6 +213,24 @@ main {
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
 }
-.checkbox-container input:checked ~ .checkmark:after{
+.checkbox-container input:checked ~ .checkmark:after {
   display: block;
+}
+
+.submit {
+  text-align: center;
+}
+
+.submit button {
+  background-color: #bb6bd9;
+  font-size: 1.1375rem;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  transition: 0.2s;
+}
+.submit button:hover{
+  background-color: #9b51e0;
 }
