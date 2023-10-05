@@ -95,12 +95,30 @@
       const inputEL = document.querySelector("#password");
       const gerardnvBtn = document.querySelector(".gerardnv");
       const copiarBtn = document.querySelector(".copiar");
+      const upperCaseCheckEl = document.querySelector("#uppercase-check");
+      const numberCheckEl = document.querySelector("#number-check");
+      const symbolCheckEl = document.querySelector("#symbol-check");
 
       let passwordLenght = 16;
 
       function generatePassword() {
-        const chars =
-          "abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ123456789?!@&*()[]";
+        let chars = "abcdefghjkmnpqrstuvwxyz";
+
+        const upperCaseChars = "ABCDEFGHJKLMNPQRSTUVWXYZ";
+
+        const numberChars = "123456789";
+
+        const symbolChars = "?!@&*()[]";
+
+        if (upperCaseCheckEl.checked) {
+          chars += upperCaseChars;
+        }
+        if (numberCheckEl.checked) {
+          chars += numberChars;
+        }
+        if (symbolCheckEl.checked) {
+          chars += symbolChars;
+        }
 
         let password = "";
 
@@ -129,6 +147,9 @@
       copyButtonEl.addEventListener("click", copy);
       gerardnvBtn.addEventListener("click", generatePassword);
       copiarBtn.addEventListener("click", copy);
+      symbolCheckEl.addEventListener("click", generatePassword);
+      numberCheckEl.addEventListener("click", generatePassword);
+      upperCaseCheckEl.addEventListener("click", generatePassword);
 
       generatePassword();
     </script>
