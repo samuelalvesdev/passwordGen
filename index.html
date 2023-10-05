@@ -139,7 +139,7 @@
       const passwordLenghtEl = document.querySelector("#password-length");
       passwordLenghtEl.addEventListener("input", function () {
         passwordLenght = passwordLenghtEl.value;
-        console.log(passwordLenght);
+        document.querySelector("#password-lenght-text").innerText = passwordLenght;
         generatePassword();
       });
 
