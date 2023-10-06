@@ -22,6 +22,7 @@
   </head>
   <body>
     <main>
+      <!-- título e subtitulo -->
       <section class="hero">
         <h1 class="title">Gerador de senha</h1>
 
@@ -29,7 +30,7 @@
           Utilize o nosso gerador online para criar uma senha forte e segura.
         </p>
       </section>
-
+      <!-- área da senha propriamente dita -->
       <section class="box">
         <div class="password">
           <div class="text">
@@ -51,6 +52,7 @@
         </div>
       </section>
 
+      <!-- área de personalização da senha e alteração do tamanho da senha-->
       <section class="box customize">
         <h3 class="title">Personalizar</h3>
         <div class="actions">
@@ -66,6 +68,8 @@
               max="64"
             />
           </div>
+
+          <!-- caixas de marcação para selecionar como deseja a senha -->
           <div class="config">
             <label class="checkbox-container">
               <span class="text">Maiúsculas</span>
@@ -86,12 +90,14 @@
         </div>
       </section>
 
+      <!-- botão maior de copiar senha -->
       <div class="submit">
         <button id="copy">Copiar senha</button>
       </div>
     </main>
 
     <script>
+      // constantes utilizadas
       const inputEL = document.querySelector("#password");
       const gerardnvBtn = document.querySelector(".gerardnv");
       const copiarBtn = document.querySelector(".copiar");
@@ -101,6 +107,7 @@
 
       let passwordLenght = 16;
 
+      // função para gerar senha
       function generatePassword() {
         let chars = "abcdefghjkmnpqrstuvwxyz";
 
@@ -130,19 +137,22 @@
         inputEL.value = password;
         console.log(password);
       }
-
+      // função para botão copiar
       function copy() {
         navigator.clipboard.writeText(inputEL.value);
         alert("Senha copiada com sucesso!");
       }
 
+      // gerando uma nova senha ao usar o slider e mudando também o valor do span tamanho
       const passwordLenghtEl = document.querySelector("#password-length");
-      passwordLenghtEl.addEventListener("input", ()=> {
+      passwordLenghtEl.addEventListener("input", () => {
         passwordLenght = passwordLenghtEl.value;
-        document.querySelector("#password-lenght-text").innerText = passwordLenght;
+        document.querySelector("#password-lenght-text").innerText =
+          passwordLenght;
         generatePassword();
       });
 
+      // ouvintes de ações
       const copyButtonEl = document.querySelector("#copy");
       copyButtonEl.addEventListener("click", copy);
       gerardnvBtn.addEventListener("click", generatePassword);
