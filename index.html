@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="security-indicator">
-          <div id="security-indicator-bar" class="bar" width="90%"></div>
+          <div id="security-indicator-bar" class="bar critical"></div>
         </div>
       </section>
 
@@ -104,6 +104,9 @@
       const upperCaseCheckEl = document.querySelector("#uppercase-check");
       const numberCheckEl = document.querySelector("#number-check");
       const symbolCheckEl = document.querySelector("#symbol-check");
+      const securityIndicatorBarEl = document.querySelector(
+        "#security-indicator-bar"
+      );
 
       let passwordLenght = 16;
 
@@ -135,8 +138,16 @@
         }
 
         inputEL.value = password;
-        console.log(password);
+        calculatorQuality();
       }
+
+      // calculando a qualidade da senha e retornando na barra que mostra em cores e em tamanho
+      function calculatorQuality() {
+        const percent = Math.round((passwordLenght / 64) * 100);
+
+        securityIndicatorBarEl.style.width = `${percent}%`;
+      }
+
       // função para botão copiar
       function copy() {
         navigator.clipboard.writeText(inputEL.value);
