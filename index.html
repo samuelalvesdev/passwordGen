@@ -140,6 +140,7 @@
 
         inputEL.value = password;
         calculatorQuality();
+        calculateFontSize();
       }
 
       // calculando a qualidade da senha e retornando na barra que mostra em cores e em tamanho
@@ -174,8 +175,29 @@
 
         if (percent >= 100) {
           securityIndicatorBarEl.classList.add("completed");
-        }else {
+        } else {
           securityIndicatorBarEl.classList.remove("completed");
+        }
+      }
+
+      // função para diminuir o tamanho da fonte
+      function calculateFontSize() {
+        if (passwordLenght > 45) {
+          inputEL.classList.add("font-xxs");
+          inputEL.classList.remove("font-sm");
+          inputEL.classList.remove("font-xs");
+        } else if (passwordLenght > 32) {
+          inputEL.classList.remove("font-xxs");
+          inputEL.classList.remove("font-sm");
+          inputEL.classList.add("font-xs");
+        }else if(passwordLenght > 22){
+          inputEL.classList.remove("font-xxs");
+          inputEL.classList.add("font-sm");
+          inputEL.classList.remove("font-xs");
+        }else{
+          inputEL.classList.remove("font-xxs");
+          inputEL.classList.remove("font-sm");
+          inputEL.classList.remove("font-xs");
           
         }
       }
