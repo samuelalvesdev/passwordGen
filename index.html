@@ -153,7 +153,7 @@
 
         securityIndicatorBarEl.style.width = `${percent}%`;
 
-        if (passwordLenght < 8 ) {
+        if (passwordLenght < 8) {
           securityIndicatorBarEl.style.width = `${15}%`;
           securityIndicatorBarEl.classList.add("critical");
           securityIndicatorBarEl.classList.remove("warning");
@@ -170,6 +170,13 @@
           securityIndicatorBarEl.classList.add("critical");
           securityIndicatorBarEl.classList.remove("warning");
           securityIndicatorBarEl.classList.remove("safe");
+        }
+
+        if (percent >= 100) {
+          securityIndicatorBarEl.classList.add("completed");
+        }else {
+          securityIndicatorBarEl.classList.remove("completed");
+          
         }
       }
 
