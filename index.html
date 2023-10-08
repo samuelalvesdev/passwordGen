@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="security-indicator">
-          <div id="security-indicator-bar" class="bar critical"></div>
+          <div id="security-indicator-bar" class="bar"></div>
         </div>
       </section>
 
@@ -107,6 +107,7 @@
       const securityIndicatorBarEl = document.querySelector(
         "#security-indicator-bar"
       );
+      const passwordLenghtEl = document.querySelector("#password-length");
 
       let passwordLenght = 16;
 
@@ -143,9 +144,33 @@
 
       // calculando a qualidade da senha e retornando na barra que mostra em cores e em tamanho
       function calculatorQuality() {
-        const percent = Math.round((passwordLenght / 64) * 100);
+        const percent = Math.round(
+          (passwordLenght / 64) * 70 +
+            (upperCaseCheckEl.checked ? 7.5 : 0) +
+            (numberCheckEl.checked ? 7.5 : 0) +
+            (symbolCheckEl.checked ? 15 : 0)
+        );
 
         securityIndicatorBarEl.style.width = `${percent}%`;
+
+        if (passwordLenght < 8 ) {
+          securityIndicatorBarEl.style.width = `${15}%`;
+          securityIndicatorBarEl.classList.add("critical");
+          securityIndicatorBarEl.classList.remove("warning");
+          securityIndicatorBarEl.classList.remove("safe");
+        } else if (percent > 47) {
+          securityIndicatorBarEl.classList.remove("critical");
+          securityIndicatorBarEl.classList.remove("warning");
+          securityIndicatorBarEl.classList.add("safe");
+        } else if (percent > 20) {
+          securityIndicatorBarEl.classList.add("warning");
+          securityIndicatorBarEl.classList.remove("critical");
+          securityIndicatorBarEl.classList.remove("safe");
+        } else {
+          securityIndicatorBarEl.classList.add("critical");
+          securityIndicatorBarEl.classList.remove("warning");
+          securityIndicatorBarEl.classList.remove("safe");
+        }
       }
 
       // função para botão copiar
@@ -155,7 +180,6 @@
       }
 
       // gerando uma nova senha ao usar o slider e mudando também o valor do span tamanho
-      const passwordLenghtEl = document.querySelector("#password-length");
       passwordLenghtEl.addEventListener("input", () => {
         passwordLenght = passwordLenghtEl.value;
         document.querySelector("#password-lenght-text").innerText =
