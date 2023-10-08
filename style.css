@@ -55,13 +55,13 @@ main {
   user-select: none;
 }
 
-.password .text input.font-sm{
+.password .text input.font-sm {
   font-size: 2rem;
 }
-.password .text input.font-xs{
+.password .text input.font-xs {
   font-size: 1.5rem;
 }
-.password .text input.font-xxs{
+.password .text input.font-xxs {
   font-size: 1rem;
 }
 
@@ -244,4 +244,28 @@ main {
 }
 .submit button:hover {
   background-color: #9b51e0;
+}
+
+@media only screen and (max-width: 480px) {
+  .password {
+    padding: 1rem;
+  }
+  .password .text input {
+    font-size: 1.5rem;
+  }
+  .password .text input.font-sm {
+    font-size: 1.2rem;
+  }
+  .password .text input.font-xs {
+    font-size: 1rem;
+  }
+  .password .text input.font-xxs {
+    font-size: 0.75rem;
+  }
+  .password .actions .buttons .copiar{
+    font-size: 2rem;
+  }
+  .password .actions .buttons .gerardnv{
+    font-size: 2rem;
+  }
 }
